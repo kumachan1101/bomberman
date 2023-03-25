@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+
+</head>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBIYj0cNJAxzB62tBsBKqzuKD7V4yhe5wg",
+    authDomain: "bomberman-cc18d.firebaseapp.com", 
+    projectId: "bomberman-cc18d",
+    storageBucket: "bomberman-cc18d.appspot.com",
+    messagingSenderId: "1075100665458",
+    appId: "1:1075100665458:web:cf90b6369347bdd3e124eb",
+    databaseURL:"https://bomberman-cc18d-default-rtdb.asia-southeast1.firebasedatabase.app"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<body onCopy="return false;"onMouseDown="return false;" onSelectStart="return false">
+  <h1>Bomberman</h1>
+  <canvas id="canvas"></canvas>
+  
+
+  <!--
+  touch-action: none; スマホでタップしたままスワイプするとpointerupイベントが発生しない現象の防止
+  user-select: none;　及び oncontextmenu="return false;" 長押し時のポップアップ停止
+  -->
+  <br>
+  <button
+    id="btnleft" 
+    style="touch-action: none; user-select: none; width:10em; height:5em;"
+    oncontextmenu="return false;">
+    <img src="./img/左.jpg" height ="40" width="40" />
+  </button>
+  <button
+    id="btnright" 
+    style="touch-action: none; user-select: none; width:10em; height:5em;"
+    oncontextmenu="return false;">
+    <img src="./img/右.jpg" height ="40" width="40" />
+  </button>
+  <button
+    id="btnup" 
+    style="touch-action: none; user-select: none; width:10em; height:5em;"
+    oncontextmenu="return false;">
+    <img src="./img/上.jpg" height ="40" width="40" />
+    </button>
+  <button
+    id="btndown" 
+    style="touch-action: none; user-select: none; width:10em; height:5em;"
+    oncontextmenu="return false;">
+    <img src="./img/下.jpg" height ="40" width="40" />
+  </button>
+  <br>
+  <button
+    id="btnenter" 
+    style="touch-action: none; user-select: none; width:10em; height:5em;"
+    oncontextmenu="return false;">
+    <img src="./img/OIP.jpg" height ="40" width="40" />
+  </button>
+  <select id="player">
+    <option value="rico" selected>rico</option>
+    <option value="aru">aru</option>
+    <option value="yamada">yamada</option>
+  </select>
+  </div>
+  <script src="./js/GameControl.js"></script>
+  <script src="./js/Player.js"></script>
+  <script src="./js/PlayerControl.js"></script>
+  <script src="./js/DBControl.js"></script>
+  <script src="./js/bom.js"></script>
+  <script src="./js/BomControl.js"></script>
+  <script src="./js/main.js"></script>
+  </body>
+</html>
