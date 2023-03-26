@@ -33,15 +33,13 @@
 </script>
 
 <body >
+  <header class="site-header"></header>
   <h1>Bomberman</h1>
-  <canvas id="can"></canvas>
-  
-  
+ 
   <!--
   touch-action: none; スマホでタップしたままスワイプするとpointerupイベントが発生しない現象の防止
   user-select: none;　及び oncontextmenu="return false;" 長押し時のポップアップ停止
   -->
-  <br>
   <button
     id="btnleft" 
     style="touch-action: none; user-select: none; width:10em; height:5em;"
@@ -72,7 +70,7 @@
     oncontextmenu="return false;">
     <img src="./img/bom_time.jpg" height ="40" width="40" />
   </button>
-  <br>
+  
   <button
     id="btnenter" 
     style="touch-action: none; user-select: none; width:10em; height:5em;"
@@ -97,6 +95,8 @@
   </button>
 
   <button type="button" id="reset">reset</button>
+</header>
+  <canvas id="can"></canvas>
 
   <script src="./js/DB_updated.js"></script>
   <script src="./js/DBControl.js"></script>
