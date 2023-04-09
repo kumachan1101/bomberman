@@ -8,7 +8,7 @@ class fire{
 }
 
 class bom{
-    constructor(x, y, time, strength, user){
+    constructor(x, y, time, strength, user, key){
         this.bom_sprite = new Sprite( 'img/bom.png', 0, 0 );
         this.fire_sprite = new Sprite( 'img/fire.png', 0, 0 );
         this.x = x;
@@ -20,6 +20,8 @@ class bom{
         this.strength = strength;
         this.bExploOnce = false;
         this.user = user;
+        this.bExpl = false;
+        this.DB_ID = key;
     }
 
     updatetime(time){
@@ -36,8 +38,17 @@ class bom{
         }
     }
 
+
+    updateDBExpl(){
+        if (this.resttime <= 0 && !this.bExpl){
+            let cFactory = new DBBom_update_factory();
+            let cDB_update = cFactory.create_instance();
+            cDB_update.update_expl(this.DB_ID, true);
+        }
+    }
+
     isExplosion(){
-        if (this.resttime <= 0){
+        if(this.bExpl){
             return true;
         }
         return false;

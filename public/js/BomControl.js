@@ -176,6 +176,7 @@ class BomControl {
         for(let cBom of bomlist) {
             let time = new Date().getTime();
             cBom.updatetime(time);
+            cBom.updateDBExpl();
             if (cBom.isExplosion()){
                 if (cBom.isNofire()){
                     cDBBomControl.deldata(cBom.x, cBom.y);
@@ -191,17 +192,27 @@ class BomControl {
             }
             i++;
         }
+        if(input.shift){
+            this.ReqExplotion();
+        }
     }
 
     DoExplotion(x, y){
         for(let cBom of bomlist) {
-            let bomx = cBom.x/CHARACTER_LARGE;
-            let bomy = cBom.y/CHARACTER_LARGE;
+            let bomx = cBom.x;
+            let bomy = cBom.y;
             if((x == bomx) && (y == bomy)){
-                
+                cBom.bExpl = true;
             }
         }
     }
+
+    ReqExplotion(){
+        for(let cBom of bomlist) {
+            cBom.resttime = 0;
+        }
+    }
+
 }
 
 class BomRegionControl extends BomControl{

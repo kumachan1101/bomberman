@@ -37,7 +37,7 @@ class DBEnemy_update_factory extends DB_update_factory {
 
 class DB_update {
     update_db(v){
-        return
+        return "INVALID";
     }
 }
 
@@ -46,13 +46,14 @@ class DBItem_update extends DB_update {
     update_db(v) {
         let DB_ID = cDBItemControl.use_db_id(v.x,v.y,DB_ITEM_ID);
         if("INVALID"==DB_ID){
-            return;
+            return DB_ID;
         }
         database.ref(room).child(DB_ID).update({
             x: v.x,
             y: v.y,
             item: v.item
         });
+        return DB_ID;
     }
 }
 
@@ -61,7 +62,7 @@ class DBBom_update extends DB_update {
     update_db(v) {
         let DB_ID = cDBBomControl.use_db_id(v.x,v.y,DB_BOM_ID);
         if("INVALID"==DB_ID){
-            return;
+            return DB_ID;
         }
 
         let iPlayerID = cPlayerControl.playerID;
@@ -77,6 +78,13 @@ class DBBom_update extends DB_update {
             fire: iFire,
             expl: v.expl
         });
+        return DB_ID;
+    }
+
+    update_expl(DB_ID, expl){
+        database.ref(room).child(DB_ID).update({
+            expl: expl
+        });
     }
 }
 
@@ -85,12 +93,13 @@ class DBBlock_update extends DB_update {
     update_db(v) {
         let DB_ID = cDBBlockControl.use_db_id(v.x,v.y,DB_BLOCK_ID);
         if("INVALID"==DB_ID){
-            return;
+            return DB_ID;
         }
         database.ref(room).child(DB_ID).update({
             x: v.x,
             y: v.y
         });
+        return DB_ID;
     }
 }
 
@@ -100,17 +109,20 @@ class DBCreate_update extends DB_update {
         database.ref(room).child(DB_BLOCK_CREATE_ID).update({
             bCreate: v.bCreate
         });
+        return DB_BLOCK_CREATE_ID;
     }
 }
 
 class DBPlayer_update extends DB_update {
 
     update_db(v) {
-        database.ref(room).child(cPlayerControl.cPlayer.cDBPlayerControl.DB_PLAYER).update({
+        let DB_ID = cPlayerControl.cPlayer.cDBPlayerControl.DB_PLAYER;
+        database.ref(room).child(DB_ID).update({
             x: v.x,
             y: v.y,
             fire: v.fire
         });
+        return DB_ID;
     }
 }
 
@@ -122,6 +134,7 @@ class DBEnemy_update extends DB_update {
             y: v.y,
             fire: v.fire
         });
+        return DB_EMEMY;
     }
 
     setid(id){

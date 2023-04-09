@@ -224,6 +224,9 @@ class InputPlayer extends Input {
 	}
 
 	init_ui(){
+		let btn_bomtime = document.getElementById("bomtime");
+        btn_bomtime.disabled = true;
+
 		document.getElementById('btnright').addEventListener('pointerdown', () => {
 		const intervalId = setInterval(pushing_btnright, 100)
 		
@@ -325,6 +328,10 @@ document.getElementById(BTN_ID2).onclick = function(){
 document.getElementById(BTN_ID3).onclick = function(){
 	cDBPlayerSelect.update_select(BTN_ID3, true);
 	cPlayerControl.SetPlayer("yamada");
+};
+
+document.getElementById("bomtime").onclick = function(){
+	cBomControl.ReqExplotion();
 };
 
 

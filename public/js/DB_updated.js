@@ -137,13 +137,20 @@ class DBBom_updated extends DB_updated {
         if(v.x == -1 && v.y == -1){
             return;
         }
+ 
+        if(v.expl){
+            cBomControl.DoExplotion(v.x, v.y);
+            return;
+        }
+
+
         let time = new Date();
         let cBom;
         if (cPlayerControl.cPlayer.cItemData.time){
-            cBom = new bomtime(v.x, v.y, time.getTime(), v.fire, v.user, v.expl);
+            cBom = new bomtime(v.x, v.y, time.getTime(), v.fire, v.user, key);
         }
         else{
-            cBom = new bom(v.x, v.y, time.getTime(), v.fire, v.user, v.expl);
+            cBom = new bom(v.x, v.y, time.getTime(), v.fire, v.user, key);
         }
         
 

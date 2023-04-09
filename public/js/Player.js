@@ -33,7 +33,7 @@ class Move_Update_Player extends Move_Update{
 					//cDBBomControl.update_db(this.x, this.y, this.playerval);
 					let cFactory = new DBBom_update_factory();
 					let cDB_update = cFactory.create_instance();
-					let v = {x:cPlayerPos.cPos.x, y:cPlayerPos.cPos.y, user:playerval};
+					let v = {x:cPlayerPos.cPos.x, y:cPlayerPos.cPos.y, user:playerval, expl:false};
 					cDB_update.update_db(v);
 		
 				}

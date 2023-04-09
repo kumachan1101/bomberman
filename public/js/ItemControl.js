@@ -217,5 +217,7 @@ class ItemTime extends Item{
 
     additem(cItemData){
         cItemData.time = true;
+        let btn_bomtime = document.getElementById("bomtime");
+        btn_bomtime.disabled = false;
     }
 }

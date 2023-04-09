@@ -280,10 +280,7 @@ database.ref(room).on("value", function(data) {
     }
 
     cBlockControl.bCreate = v.DB_BLOCK_CREATE.bCreate;
- 
-    if(v.DB_BOM_ID.expl){
-        cBomControl.DoExplotion(v.DB_BOM_ID.x, v.DB_BOM_ID.y);
-    }
+
 });
 
 
