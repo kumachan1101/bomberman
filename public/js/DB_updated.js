@@ -138,7 +138,14 @@ class DBBom_updated extends DB_updated {
             return;
         }
         let time = new Date();
-        let cBom = new bom(v.x, v.y, time.getTime(), v.fire, v.user);
+        let cBom;
+        if (cPlayerControl.cPlayer.cItemData.time){
+            cBom = new bomtime(v.x, v.y, time.getTime(), v.fire, v.user, v.expl);
+        }
+        else{
+            cBom = new bom(v.x, v.y, time.getTime(), v.fire, v.user, v.expl);
+        }
+        
 
         // 爆弾を置こうとした場所に既に爆弾があった場合は何もしない
         if(cBomControl.isExsist(cBom.x/CHARACTER_LARGE, cBom.y/CHARACTER_LARGE) 

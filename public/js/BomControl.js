@@ -192,6 +192,16 @@ class BomControl {
             i++;
         }
     }
+
+    DoExplotion(x, y){
+        for(let cBom of bomlist) {
+            let bomx = cBom.x/CHARACTER_LARGE;
+            let bomy = cBom.y/CHARACTER_LARGE;
+            if((x == bomx) && (y == bomy)){
+                
+            }
+        }
+    }
 }
 
 class BomRegionControl extends BomControl{

@@ -174,6 +174,7 @@ class Input {
 		this.down = false;
 		this.right = false;
 		this.enter = false;
+		this.shift = false;
 		this.push = "";
 	}
 
@@ -194,7 +195,10 @@ class Input {
 		case 13:
 			this.enter = bState;
 			break;
-		}
+		case 16:
+			this.shift = bState;
+			break;
+			}
 	}
 }
 //入力（Input）クラス
@@ -268,7 +272,7 @@ class InputPlayer extends Input {
 			this.down = true;
 		}
 
-		document.getElementById('btnenter').addEventListener('pointerenter', () => {
+		document.getElementById('btnenter').addEventListener('pointerdown', () => {
 			const intervalId = setInterval(pushing_btnenter, 100)
 	
 			document.addEventListener('pointerup', () => {
@@ -280,6 +284,20 @@ class InputPlayer extends Input {
 			this.enter = true;
 		}
 
+		document.getElementById('bomtime').addEventListener('pointerdown', () => {
+			const intervalId = setInterval(pushing_btnshift, 100)
+	
+			document.addEventListener('pointerup', () => {
+				this.shift = false;
+				clearInterval(intervalId)
+			}, { once: true })
+		})
+		const pushing_btnshift = () => {
+			this.shift = true;
+		}
+
+
+		
 	}
 }
 

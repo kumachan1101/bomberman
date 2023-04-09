@@ -21,7 +21,7 @@ class Move_Update_Enemy extends Move_Update{
 				
 				let cFactory = new DBBom_update_factory();
 				let cDB_update = cFactory.create_instance();
-				let v = {x:cPlayerPos.cPos.x, y:cPlayerPos.cPos.y, user:playerval};
+				let v = {x:cPlayerPos.cPos.x, y:cPlayerPos.cPos.y, user:playerval, expl:false};
 				cDB_update.update_db(v);
 		
 				cEnemyInput.enter = false;

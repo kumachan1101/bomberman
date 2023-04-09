@@ -75,10 +75,10 @@ class ItemFieldControl{
     }
 
     create_rand(x, y){
-        let rand = Math.floor(Math.random() * 20);
+        let rand = Math.floor(Math.random() * 10);
         if (ITEM_ID_NONE < rand && rand < ITEM_ID_NUM){
             if(rand == ITEM_ID_BOM_REGION){
-                if(ITEM_ID_BOM_REGION == Math.floor(Math.random() * 50)){
+                if(ITEM_ID_BOM_REGION == Math.floor(Math.random() * 20)){
                     rand = ITEM_ID_BOM_REGION;
                 }
                 else{

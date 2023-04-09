@@ -70,12 +70,12 @@ class DBBom_update extends DB_update {
         if(undefined != cPlayer){
             iFire = iFire + cPlayer.cItemData.fire;
         }
-
         database.ref(room).child(DB_ID).update({
             x: v.x,
             y: v.y,
             user: v.user,
-            fire: iFire
+            fire: iFire,
+            expl: v.expl
         });
     }
 }

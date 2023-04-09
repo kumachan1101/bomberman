@@ -50,3 +50,21 @@ class bom{
         return false;
     }
 }
+
+class bomtime extends bom {
+
+    updatetime(time){
+        this.beforetime = this.aftertime;
+        this.aftertime = time;        
+        let diffime = this.aftertime - this.beforetime;
+        if (this.resttime > 0){
+            // 時限爆弾の場合は、爆発までの時間は更新しない
+        }
+        else{
+            if (this.restexplosiontime > 0){
+                this.restexplosiontime = this.restexplosiontime - diffime;
+            }
+        }
+    }
+
+}
