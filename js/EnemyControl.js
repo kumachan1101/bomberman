@@ -4,7 +4,7 @@ class EnemyControl extends CharacterControl{
 
     constructor(){
         super();
-        for(let i = 0; i < 20; i++){
+        for(let i = 0; i < 5; i++){
             this.push(new Enemy( new Sprite( 'img/enemy.jpg',  0, 0 ), CHARACTER_LARGE*5, CHARACTER_LARGE*16, i));
         }
         this.useid = -1;
